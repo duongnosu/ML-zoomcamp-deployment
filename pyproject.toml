@@ -1,0 +1,26 @@
+[project]
+name = "ml-zoomcamp-deployment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Nhu Duong", email = "35271575+duongnosu@users.noreply.github.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.162.0",
+    "scikit-learn>=1.9.1",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+ml-zoomcamp-deployment = "ml_zoomcamp_deployment:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "requests>=2.34.2",
+]

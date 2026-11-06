@@ -7,7 +7,7 @@ from fastapi import FastAPI
 import uvicorn
 
 
-
+#request
 class Customer(BaseModel):
     gender: Literal["male", "female"]
     seniorcitizen: Literal[0, 1]
@@ -51,6 +51,8 @@ def predict_single(customer):
     return float(result)
 
 
+from typing import Dict, Any
+
 @app.post("/predict")
 def predict(customer: Customer) -> PredictResponse:
     prob = predict_single(customer.model_dump())
@@ -59,8 +61,6 @@ def predict(customer: Customer) -> PredictResponse:
         churn_probability=prob,
         churn=prob >= 0.5
     )
-
-
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=9696)
 
