@@ -19,7 +19,7 @@ ENV PATH="/code/.venv/bin:$PATH"
 COPY "pyproject.toml" "uv.lock" ".python-version" ./
 
 # Install dependencies exactly as locked in uv.lock, without updating them
-RUN uv sync --locked
+RUN uv sync --locked --no-install-project
 
 # Copy application code and model data into the container
 COPY "predict.py" "model.bin" ./
