@@ -28,7 +28,7 @@ customer = {
 }
 
 response = lambda_client.invoke(
-    FunctionName='churn_prediction',
+    FunctionName='churn-prediction-docker',
     InvocationType='RequestResponse',
     Payload=json.dumps(customer)
 )
