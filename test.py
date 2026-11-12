@@ -1,7 +1,9 @@
 import requests
 
-url = 'http://localhost:9696/predict'
+# url = 'http://localhost:9696/predict'
 # url = 'https://mlzoomcamp-flask-uv.fly.dev/predict'
+url = 'http://localhost:8080/2015-03-31/functions/function/invocations'
+
 
 customer = {
     'gender': 'female',
@@ -25,11 +27,14 @@ customer = {
     'totalcharges': 29.85
 }
 
-response = requests.post(url, json=customer)
+# response = requests.post(url, json=customer)
 
-predictions = response.json()
+# predictions = response.json()
 
-if predictions['churn']:
-    print('customer is likely to churn, send promo')
-else:
-    print('customer is not likely to churn')
+# if predictions['churn']:
+#     print('customer is likely to churn, send promo')
+# else:
+#     print('customer is not likely to churn')
+
+result = requests.post(url, json={'customer': customer}).json()
+print(result)
